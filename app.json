@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "mitra-app",
-    "slug": "mitra-app",
+    "name": "Gerontik",
+    "slug": "Gerontik",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -17,13 +17,24 @@
       "**/*"
     ],
     "ios": {
+      "bundleIdentifier": "id.gerontik.app",
+      "buildNumber": "1",
       "supportsTablet": true
     },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      }
+      "package": "id.gerontik.app",
+      "versionCode": 2,
+      "icon": "./assets/icon.png",
+      "permissions": [
+        "WRITE_EXTERNAL_STORAGE",
+        "READ_EXTERNAL_STORAGE",
+        "READ_INTERNAL_STORAGE",
+        "INTERNET",
+        "ACCESS_NETWORK_STATE",
+        "ACCESS_WIFI_STATE",
+        "CAMERA",
+        "CAMERA_ROLL"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
