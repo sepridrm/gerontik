@@ -11,7 +11,7 @@ const Menu = ({ props, form_data }) => {
 
     const ItemMenu = item => {
         return (
-            <Box width={getSize.widthScreen / 2} p={4} alignItems="center">
+            <Box width={getSize.widthScreen / 2.3} p={4} alignItems="center" borderWidth="1" borderColor="dark.700" m="2" borderRadius="5" >
                 <TouchableOpacity onPress={() => validURL(item.nav) ? form_data.cekReport(item.nav) : props.navigation.navigate(item.nav, { pasien: form_data.pasien })}>
                     <Box border={1} py={2} borderRadius={10} borderColor="#DDDDDD" width="100%">
                         <VStack space={2} px={3} alignItems="center">
@@ -80,7 +80,7 @@ const Menu = ({ props, form_data }) => {
 
     return (
         <>
-            <View style={{ flex: 1, backgroundColor: 'white', justifyContent: 'center' }}>
+            <View style={{ flex: 1, backgroundColor: 'white', justifyContent: 'center', paddingHorizontal: 10 }}>
                 <HStack space={2} alignItems="center" p={4}>
                     <Avatar
                         size="lg"

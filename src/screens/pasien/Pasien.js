@@ -18,11 +18,11 @@ const Pasien = ({ props, form_data }) => {
                     <Stack space={2}>
                         <View>
                             <FormControl.Label><Text>Photo</Text></FormControl.Label>
-                            <TouchableOpacity onPress={()=> props.navigation.navigate('OpenCamera', { setFoto: form_data.setFoto })}>
+                            <TouchableOpacity onPress={() => props.navigation.navigate('OpenCamera', { setFoto: form_data.setFoto })}>
                                 <Avatar
                                     size="xl"
-                                    source={ form_data.path_foto ? { uri: form_data.path_foto.uri } : null }>
-                                        <Text style={{ color: 'white' }}>Tap me</Text>
+                                    source={form_data.path_foto ? { uri: form_data.path_foto.uri } : null}>
+                                    <Text style={{ color: 'white' }}>Tap me</Text>
                                 </Avatar>
                             </TouchableOpacity>
                         </View>
@@ -44,12 +44,27 @@ const Pasien = ({ props, form_data }) => {
                             <DatePicker
                                 style={{ width: '100%' }}
                                 date={form_data.tanggal_lahir}
-                                mode="date"
+                                mode="datetime"
                                 display="default"
                                 confirmBtnText="Ok"
                                 cancelBtnText="Cancel"
                                 format="LL"
                                 onDateChange={(date) => form_data.setTanggalLahir(date)}
+                            />
+
+                            <DatePicker
+                                modal
+                                mode="date"
+                                open={open}
+                                date={tgl_lahir}
+                                onDateChange={handleDateChangeTglLahir}
+                                onConfirm={(date) => {
+                                    setOpen(false)
+                                    setTgllahir(date)
+                                }}
+                                onCancel={() => {
+                                    setOpen(false)
+                                }}
                             />
                         </View>
 

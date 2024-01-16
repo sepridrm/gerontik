@@ -19,7 +19,7 @@ const Home = ({ props, form_data }) => {
 
     const ItemPasien = item => {
         return (
-            <Box width={getSize.widthScreen / 2} p={4} alignItems="center">
+            <Box width={getSize.widthScreen / 2.3} p={4} alignItems="center" borderWidth="1" borderColor="dark.700" m="2" borderRadius="5">
                 <TouchableOpacity onPress={() => props.navigation.navigate('Menu', { pasien: item })}>
                     <Box border={1} py={2} borderRadius={10} borderColor="#DDDDDD" width="100%">
                         <VStack space={2} px={3} alignItems="center">
@@ -40,7 +40,7 @@ const Home = ({ props, form_data }) => {
 
     return (
         <NativeBaseProvider>
-            <View style={{ flex: 1, backgroundColor: 'white', justifyContent: 'center' }}>
+            <View style={{ flex: 1, backgroundColor: 'white', justifyContent: 'center', paddingHorizontal: 10 }}>
                 {props.PASIENS.length > 0 ?
                     <FlatList
                         showsVerticalScrollIndicator={false}

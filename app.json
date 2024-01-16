@@ -17,13 +17,13 @@
       "**/*"
     ],
     "ios": {
-      "bundleIdentifier": "id.gerontik.app",
+      "bundleIdentifier": "com.gerontik.app",
       "buildNumber": "1",
       "supportsTablet": true
     },
     "android": {
-      "package": "id.gerontik.app",
-      "versionCode": 3,
+      "package": "com.gerontik.app",
+      "versionCode": 1,
       "icon": "./assets/icon.png",
       "permissions": [
         "WRITE_EXTERNAL_STORAGE",
