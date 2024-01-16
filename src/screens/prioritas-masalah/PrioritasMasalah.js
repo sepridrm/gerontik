@@ -23,7 +23,6 @@ const PrioritasMasalah = ({ props, form_data }) => {
                                     value={form_data.prioritas_masalah}
                                     onChangeText={(text) => form_data.setPrioritasMasalah(text)}
                                     fontFamily="regular"
-                                    multiline
                                     variant="underlined"
                                     placeholder="Prioritas masalah"
                                     maxHeight={getSize.heightScreen/2.5}

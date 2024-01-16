@@ -23,7 +23,6 @@ const AnalisisData = ({ props, form_data }) => {
                                     value={form_data.analisis_data}
                                     onChangeText={(text) => form_data.setAnalisisData(text)}
                                     fontFamily="regular"
-                                    multiline
                                     variant="underlined"
                                     placeholder="Analisis data"
                                     maxHeight={getSize.heightScreen/2.5}

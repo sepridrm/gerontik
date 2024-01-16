@@ -23,7 +23,6 @@ const IntervensiKeperawatan = ({ props, form_data }) => {
                                     value={form_data.intervensi_keperawatan}
                                     onChangeText={(text) => form_data.setIntervensiKeperawatan(text)}
                                     fontFamily="regular"
-                                    multiline
                                     variant="underlined"
                                     placeholder="Intervensi keperawatan"
                                     maxHeight={getSize.heightScreen/2.5}

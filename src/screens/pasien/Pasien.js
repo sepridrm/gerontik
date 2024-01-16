@@ -44,27 +44,12 @@ const Pasien = ({ props, form_data }) => {
                             <DatePicker
                                 style={{ width: '100%' }}
                                 date={form_data.tanggal_lahir}
-                                mode="datetime"
+                                mode="date"
                                 display="default"
                                 confirmBtnText="Ok"
                                 cancelBtnText="Cancel"
                                 format="LL"
                                 onDateChange={(date) => form_data.setTanggalLahir(date)}
-                            />
-
-                            <DatePicker
-                                modal
-                                mode="date"
-                                open={open}
-                                date={tgl_lahir}
-                                onDateChange={handleDateChangeTglLahir}
-                                onConfirm={(date) => {
-                                    setOpen(false)
-                                    setTgllahir(date)
-                                }}
-                                onCancel={() => {
-                                    setOpen(false)
-                                }}
                             />
                         </View>
 

@@ -23,7 +23,6 @@ const EvaluasiKeperawatan = ({ props, form_data }) => {
                                     value={form_data.evaluasi_keperawatan}
                                     onChangeText={(text) => form_data.setEvaluasiKeperawatan(text)}
                                     fontFamily="regular"
-                                    multiline
                                     variant="underlined"
                                     placeholder="Evaluasi keperawatan"
                                     maxHeight={getSize.heightScreen/2.5}
