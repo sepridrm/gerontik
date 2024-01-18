@@ -1,13 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, ScrollView } from 'react-native'
 import Text from '../../components/CustomText'
 import { FormControl, Stack, Input, Button, Select, CheckIcon, Avatar } from 'native-base'
 import { styles } from '../../utils/helpers'
 import TextButton from '../../components/TextButton'
-import DatePicker from 'react-native-datepicker';
+import DateTimePicker from '@react-native-community/datetimepicker';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import Moment from 'moment'
 
 const Pasien = ({ props, form_data }) => {
+    const onChange = (event, selectedDate) => {
+        form_data.setTanggalLahir(selectedDate)
+    };
+
     return (
         <ScrollView showsVerticalScrollIndicator={false}>
             <View style={styles.publicContainer}>
@@ -41,15 +46,12 @@ const Pasien = ({ props, form_data }) => {
 
                         <View>
                             <FormControl.Label><Text>Tanggal lahir</Text></FormControl.Label>
-                            <DatePicker
-                                style={{ width: '100%' }}
-                                date={form_data.tanggal_lahir}
-                                mode="date"
-                                display="default"
-                                confirmBtnText="Ok"
-                                cancelBtnText="Cancel"
-                                format="LL"
-                                onDateChange={(date) => form_data.setTanggalLahir(date)}
+                            <DateTimePicker
+                                value={form_data.tanggal_lahir}
+                                display='spinner'
+                                mode='date'
+                                is24Hour={true}
+                                onChange={onChange}
                             />
                         </View>
 

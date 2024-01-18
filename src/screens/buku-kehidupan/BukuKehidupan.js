@@ -102,7 +102,7 @@ const BukuKehidupan = ({ form_data }) => {
 
                     <Fab
                         placement="bottom-left"
-                        ml={getSize.widthScreen / 2.5}
+                        ml={getSize.widthScreen / 2.45}
                         onPress={() => form_data.onSave(data, setPage, page)}
                         position="absolute"
                         disabled={form_data.loading}

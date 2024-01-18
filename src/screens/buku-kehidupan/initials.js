@@ -91,7 +91,7 @@ export const initials = (bukukehidupan) => {
         ['Pensiun', pensiun, setPensiun,'pensiun'],
         ['Kehidupanku Sekarang', kehidupan_sekarang, setKehidupanSekarang,'kehidupan_sekarang'],
         ['Penampilanku', penampilan, setPenampilan,'penampilan'],
-        ['Minat dan Hobbi', minat_hobi, setMinatHobi,'minat_hobi'],
+        ['Minat dan Hobi', minat_hobi, setMinatHobi,'minat_hobi'],
         ['Hal yang kusuka dan tidak suka', suka_tidaksuka, setSukaTidaksuka,'suka_tidaksuka'],
         ['Orang Penting bagi Saya Sekarang', orang_penting, setOrangPenting,'orang_penting'],
         ['Harapan untuk Pelayanan ke Depan', harapan, setHarapan,'harapan']

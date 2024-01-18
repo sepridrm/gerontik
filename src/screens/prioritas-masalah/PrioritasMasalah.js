@@ -10,6 +10,33 @@ import TextButton from '../../components/TextButton';
 const PrioritasMasalah = ({ props, form_data }) => {
     const { isOpen, onOpen, onClose } = useDisclose()
 
+    let list
+    if (form_data.data)
+        list = <SectionList
+            sections={form_data.data}
+            keyExtractor={(item, index) => item + index}
+            renderItem={({ item, index, section }) => (
+                <VStack>
+                    <Box pl={10} py={3} bg="white">
+                        <HStack space={1}>
+                            <Text type="semi-bold">{index + 1}.</Text>
+                            <Text style={{ width: '90%' }}>{item.prioritas_masalah}</Text>
+                        </HStack>
+                    </Box>
+                    <Divider />
+                    <Box bg="white" height={section.index == form_data.data.length - 1 && index == section.data.length - 1 ? 120 : null} />
+                </VStack>
+            )}
+            renderSectionHeader={({ section }) => (
+                <Box
+                    bg="gray.200"
+                    px={5}
+                    py={2}>
+                    <Text type="bold">{Moment(section.date).format('LL')}</Text>
+                </Box>
+            )}
+        />
+
     return (
         <View style={{ flex: 1, backgroundColor: 'white' }}>
             <Actionsheet isOpen={isOpen} onClose={onClose}>
@@ -25,11 +52,12 @@ const PrioritasMasalah = ({ props, form_data }) => {
                                     fontFamily="regular"
                                     variant="underlined"
                                     placeholder="Prioritas masalah"
-                                    maxHeight={getSize.heightScreen/2.5}
+                                    maxHeight={getSize.heightScreen / 2.5}
                                 />
                             </View>
                             <Button
                                 mt={2}
+                                mb={5}
                                 w="60%"
                                 onPress={() => form_data.onSave(onClose)}
                                 isLoading={form_data.loading}
@@ -41,30 +69,7 @@ const PrioritasMasalah = ({ props, form_data }) => {
                 </Actionsheet.Content>
             </Actionsheet>
 
-            <SectionList
-                sections={form_data.data}
-                keyExtractor={(item, index) => item + index}
-                renderItem={({ item, index, section }) => (
-                    <VStack>
-                        <Box pl={10} py={3} bg="white">
-                            <HStack space={1}>
-                                <Text type="semi-bold">{index + 1}.</Text>
-                                <Text style={{ width: '90%' }}>{item.prioritas_masalah}</Text>
-                            </HStack>
-                        </Box>
-                        <Divider />
-                        <Box bg="white" height={section.index == form_data.data.length - 1 && index == section.data.length - 1 ? 120 : null} />
-                    </VStack>
-                )}
-                renderSectionHeader={({ section }) => (
-                    <Box
-                        bg="gray.200"
-                        px={5}
-                        py={2}>
-                        <Text type="bold">{Moment(section.date).format('LL')}</Text>
-                    </Box>
-                )}
-            />
+            {list}
 
             <Fab
                 placement="bottom-left"

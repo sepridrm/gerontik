@@ -6,7 +6,7 @@ import { getTitleToast } from '../../utils/helpers'
 import AnalisisData from './AnalisisData'
 
 const index = ({ props }) => {
-    const [analisis_data, setAnalisisData] = useState('')
+    const [analisis_data, setAnalisisData] = useState('Okee')
     const [data, setData] = useState(null)
     const [loading, setLoading] = useState(false)
     const toast = useToast()
@@ -19,6 +19,7 @@ const index = ({ props }) => {
     async function getAnalisisData() {
         setLoading(true)
         const res = await apis.get('analisis-data/', pasien.id, false, setLoading)
+        console.log(res);
         if (res.status == 'Ok') {
             setData(groupByDate(res.data));
         }

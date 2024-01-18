@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Pasien from './Pasien'
 import { useToast } from 'native-base';
 import { connect } from "react-redux";
@@ -10,7 +10,7 @@ Moment.updateLocale('id', require('moment/locale/id'));
 
 const index = (props) => {
     const [nama, setNama] = useState('')
-    const [tanggal_lahir, setTanggalLahir] = useState(Moment().subtract(80, 'years').format('LL'))
+    const [tanggal_lahir, setTanggalLahir] = useState(new Date(Moment().subtract(60, 'years')))
     const [tempat_lahir, setTempatLahir] = useState('')
     const [jenis_kelamin, setJenisKelamin] = useState('')
     const [agama, setAgama] = useState('')
@@ -21,10 +21,10 @@ const index = (props) => {
     const [path_foto, setPathFoto] = useState(null)
     const [loading, setLoading] = useState(false)
     const toast = useToast()
-
+    
     const validation = () => {
         let warning;
-        const minDate = Moment().subtract(80, 'years').format('LL');
+        const minDate = new Date(Moment().subtract(60, 'years'));
         (!nama || !tempat_lahir || !jenis_kelamin || !agama || !alamat || !pendidikan || !pekerjaan || !status) ? warning = "Silahkan lengkapi data." :
             tanggal_lahir == minDate ? warning = "Silahkan pilih tanggal lahir." : warning = false
 
@@ -49,7 +49,7 @@ const index = (props) => {
         let formData = new FormData();
         props.USER.id_mahasiswa ? formData.append('id_mahasiswa', props.USER.id) : formData.append('id_perawat', props.USER.id)
         formData.append('nama', nama);
-        formData.append('tanggal_lahir', Moment(tanggal_lahir, 'LL').format('YYYY-MM-DD'));
+        formData.append('tanggal_lahir', Moment(tanggal_lahir).format('YYYY-MM-DD'));
         formData.append('tempat_lahir', tempat_lahir);
         formData.append('jenis_kelamin', jenis_kelamin);
         formData.append('agama', agama);
@@ -74,7 +74,7 @@ const index = (props) => {
     const resetValue = () => {
         setNama('');
         setTempatLahir('');
-        setTanggalLahir(Moment().subtract(80, 'years').format('LL'));
+        setTanggalLahir(new Date(Moment().subtract(60, 'years')));
         setAlamat('');
         setJenisKelamin('');
         setAgama('');

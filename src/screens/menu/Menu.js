@@ -119,14 +119,15 @@ const Menu = ({ props, form_data }) => {
                             {ItemSkrining}
 
                             <Text fontFamily="light" mt={4}>Kesimpulan</Text>
-                            <Text fontFamily="semi-bold" fontSize="xl" style>{hasil_skrining ? 'Pasien dalam masalah kesehatan' : counter === 0 ? 'Pasien dalam keadaan sehat' : 'Belum ada data'}</Text>
+                            <Text fontFamily="semi-bold" fontSize="xl">{counter == 0 ? 'Belum ada data' : hasil_skrining ? 'Pasien dalam masalah kesehatan' : 'Pasien dalam keadaan sehat'}</Text>
                         </VStack>
                     </Modal.Body>
-                    <Modal.Footer>
-                        <Button.Group space={2}>
+                    <Modal.Footer p={2}>
+                        <Button.Group>
                             <Button
-                                variant="ghost"
-                                colorScheme="blueGray"
+                                py={2}
+                                px={3}
+                                variant="solid"
                                 onPress={() => {
                                     form_data.setOpen(false)
                                 }}
