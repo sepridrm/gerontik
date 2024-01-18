@@ -1,17 +1,22 @@
 import React, { useState } from 'react'
 import { View, ScrollView } from 'react-native'
 import Text from '../../components/CustomText'
-import { FormControl, Stack, Input, Button, Select, CheckIcon, Avatar } from 'native-base'
+import { FormControl, Stack, Input, Button, Select, CheckIcon, Avatar, HStack, Pressable } from 'native-base'
 import { styles } from '../../utils/helpers'
 import TextButton from '../../components/TextButton'
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Moment from 'moment'
+import { Ionicons } from '@expo/vector-icons'
 
 const Pasien = ({ props, form_data }) => {
+    const [open, setOpen] = useState(false)
     const onChange = (event, selectedDate) => {
+        setOpen(false)
         form_data.setTanggalLahir(selectedDate)
     };
+
+    console.log(open);
 
     return (
         <ScrollView showsVerticalScrollIndicator={false}>
@@ -46,13 +51,21 @@ const Pasien = ({ props, form_data }) => {
 
                         <View>
                             <FormControl.Label><Text>Tanggal lahir</Text></FormControl.Label>
-                            <DateTimePicker
-                                value={form_data.tanggal_lahir}
-                                display='spinner'
-                                mode='date'
-                                is24Hour={true}
-                                onChange={onChange}
-                            />
+                            <Pressable
+                                onPress={() => setOpen(true)}>
+                                <HStack flex={1} alignItems="center" space={2}>
+                                    <Ionicons size={20} name="ios-calendar" />
+                                    <Text type="semi-bold" style={{ textAlignVertical: 'center' }}>{Moment(form_data.tanggal_lahir).format('LL')}</Text>
+                                </HStack>
+                            </Pressable>
+                            {open && (
+                                <DateTimePicker
+                                    value={form_data.tanggal_lahir}
+                                    display='calendar'
+                                    mode='date'
+                                    is24Hour={true}
+                                    onChange={onChange}
+                                />)}
                         </View>
 
                         <View>
