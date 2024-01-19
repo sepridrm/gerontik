@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import { useFonts } from 'expo-font';
 import Router from './src/router';
 import reducers from './src/reducers/index'

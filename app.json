@@ -23,7 +23,7 @@
     },
     "android": {
       "package": "com.gerontik.app",
-      "versionCode": 2,
+      "versionCode": 4,
       "icon": "./assets/icon.png",
       "permissions": [
         "WRITE_EXTERNAL_STORAGE",
