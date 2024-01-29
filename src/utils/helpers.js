@@ -5,7 +5,7 @@ import * as ImageManipulator from 'expo-image-manipulator'
 
 // const baseURL = 'http://192.168.136.215:8000/'
 // const baseURL = 'http://192.168.100.72:8000/'
-const baseURL = 'http://gerontik.stikesmitraadiguna.ac.id/'
+const baseURL = 'https://gerontik.stikesmitraadiguna.ac.id/'
 
 export const getUrl = {
     baseURL: baseURL + 'api/',

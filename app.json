@@ -2,7 +2,7 @@
   "expo": {
     "name": "Gerontik",
     "slug": "Gerontik",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -21,11 +21,20 @@
       "buildNumber": "1",
       "supportsTablet": true
     },
+    "plugins": [
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "usesCleartextTraffic": true
+          }
+        }
+      ]
+    ],
     "android": {
       "package": "com.gerontik.app",
-      "versionCode": 4,
+      "versionCode": 6,
       "icon": "./assets/icon.png",
-      "usesCleartextTraffic": true,
       "permissions": [
         "WRITE_EXTERNAL_STORAGE",
         "READ_EXTERNAL_STORAGE",
